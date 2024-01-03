@@ -27,7 +27,7 @@ host('beautiful_quotes')
 // Hooks
 after('deploy:failed', 'deploy:unlock');
 task('config-cache:clear', function () {
-    run('cd {{release_path}} && nvm use 18.17.0 && npm install && php artisan config:clear && php artisan cache:clear');
+    run('cd {{release_path}} && export NVM_DIR=~/.nvm && source ~/.nvm/nvm.sh && nvm use 18.17.0 && npm install && php artisan config:clear && php artisan cache:clear');
 });
 
 task('reload:php-fpm', function () {

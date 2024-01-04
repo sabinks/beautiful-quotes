@@ -19,15 +19,15 @@ add('shared_dirs', ['public/uploads']);
 add('writable_dirs', ['public/uploads', 'storage', 'storage/framework', 'bootstrap/cache']);
 
 // Hosts
-host('beautiful_quotes')
+host('quote_buckets')
     ->set('labels', ['stage' => 'production'])
     ->set('remote_user', 'root')
-    ->set('deploy_path', '/var/www/beautiful-quotes/live/backend');
+    ->set('deploy_path', '/var/www/quote-buckets/live/backend');
 
 // Hooks
 after('deploy:failed', 'deploy:unlock');
 task('config-cache:clear', function () {
-    run('cd {{release_path}} && export NVM_DIR=~/.nvm && source ~/.nvm/nvm.sh && nvm use 18.17.0 && npm install && php artisan config:clear && php artisan cache:clear');
+    run('cd {{release_path}} && php artisan config:clear && php artisan cache:clear');
 });
 
 task('reload:php-fpm', function () {

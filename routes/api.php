@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Next\WallpaperQuoteController as NextWallpaperQuoteController;
+use App\Http\Controllers\SiteVisitController;
 use App\Http\Controllers\User\AuthController;
 use App\Http\Controllers\WallpaperQuoteController;
 use Illuminate\Http\Request;
@@ -23,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::post('get-user', [AuthController::class, 'getUser'])->middleware(['auth:api']);
+Route::post('site-visit-count', [SiteVisitController::class, 'visitCount']);
 
 Route::get('next-wallpaper-quotes', [NextWallpaperQuoteController::class, 'index']);
 Route::resource('wallpaper-quotes', WallpaperQuoteController::class);

@@ -16,7 +16,7 @@ class WallpaperQuoteController extends Controller
      */
     public function index()
     {
-        $wallpaperQuotes = WallpaperQuote::get();
+        $wallpaperQuotes = WallpaperQuote::latest()->get();
 
         return response()->json([
             'data' => $wallpaperQuotes,

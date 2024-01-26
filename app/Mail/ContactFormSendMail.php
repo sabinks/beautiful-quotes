@@ -12,7 +12,7 @@ use Illuminate\Queue\SerializesModels;
 class ContactFormSendMail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $name, $email, $phone, $message;
+    public $name, $email, $phone, $subject,  $message;
     /**
      * Create a new message instance.
      */
@@ -21,6 +21,7 @@ class ContactFormSendMail extends Mailable
         $this->name = $info['name'];
         $this->email = $info['email'];
         $this->phone = $info['phone'];
+        $this->subject = $info['subject'];
         $this->message = $info['message'];
     }
 

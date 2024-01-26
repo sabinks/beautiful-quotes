@@ -29,4 +29,4 @@ Route::post('site-visit-count', [SiteVisitController::class, 'visitCount']);
 
 Route::get('next-wallpaper-quotes', [NextWallpaperQuoteController::class, 'index']);
 Route::resource('wallpaper-quotes', WallpaperQuoteController::class);
-Route::post('contact-form-send-mail', [NextFormSendMailController::class, 'contactFormSendMail']);
+Route::post('next/contact-form-send-mail', [NextFormSendMailController::class, 'contactFormSendMail']);

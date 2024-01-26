@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Next\WallpaperQuoteController as NextWallpaperQuoteController;
+use App\Http\Controllers\NextFormSendMailController;
 use App\Http\Controllers\SiteVisitController;
 use App\Http\Controllers\User\AuthController;
 use App\Http\Controllers\WallpaperQuoteController;
@@ -28,3 +29,4 @@ Route::post('site-visit-count', [SiteVisitController::class, 'visitCount']);
 
 Route::get('next-wallpaper-quotes', [NextWallpaperQuoteController::class, 'index']);
 Route::resource('wallpaper-quotes', WallpaperQuoteController::class);
+Route::post('contact-form-send-mail', [NextFormSendMailController::class, 'contactFormSendMail']);

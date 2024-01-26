@@ -9,7 +9,7 @@ class WallpaperQuote extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['filename', 'original_filename', 'quote_type_id', 'publish'];
+    protected $fillable = ['filename', 'title', 'original_filename', 'quote_type_id', 'publish'];
     protected $casts = [
         'created_at' => 'datetime:Y-m-d H:i:s A',
         'updated_at' => 'datetime:Y-m-d H:i:s A',

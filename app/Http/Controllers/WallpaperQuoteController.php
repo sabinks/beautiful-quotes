@@ -30,6 +30,7 @@ class WallpaperQuoteController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'title' => '',
             'image.*' => 'image|max:3072|mimes:jpg,jpeg,png,bmp'
         ]);
         if ($validator->fails()) {
@@ -49,6 +50,7 @@ class WallpaperQuoteController extends Controller
                     $result = $file->storeAs($destination_path . '/', $filename);
                     if ($result) {
                         $data[$key]['filename'] = $filename;
+                        $data[$key]['title'] = $request->title;
                         $data[$key]['original_filename'] = $original_filename;
                         $data[$key]['created_at'] = Carbon::now();
                         $data[$key]['updated_at'] = Carbon::now();
